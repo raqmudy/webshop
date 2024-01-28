@@ -150,8 +150,3 @@ def get_child_groups_for_website(item_group_name, immediate=False, include_self=
 		filters.update({"lft": [">=", item_group.lft], "rgt": ["<=", item_group.rgt]})
 
 	return frappe.get_all("Item Group", filters=filters, fields=["name", "route"], order_by="name")
-
-def get_context(self, context):
-        context.field_filters = []
-        if hasattr(self, 'filter_fields'):
-            context.field_filters = [row.fieldname for row in self.filter_fields] 
